@@ -2,6 +2,17 @@ from django.db import models
 from django.utils import timezone
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return self.name
+
+    class Meta:
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
+
+
 class Contact(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50, blank=True)
@@ -16,6 +27,12 @@ class Contact(models.Model):
         width_field=None,
         max_length=None,
         blank=True,
+    )
+    categori = models.ForeignKey(
+        Category,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
     )
 
     def __str__(self) -> str:
