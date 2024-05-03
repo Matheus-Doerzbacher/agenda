@@ -19,15 +19,21 @@
 
     <tbody>
       <!-- FOR -->
-      {% for contact in contacts %}
+      {% for c in contacts %}
       <tr class="table-row">
         <td class="table-cel">
-          <a href="#" class="table-link">{{ contact.id }}</a>
+          <a href="{% url 'contact:contact' c.id %}" class="table-link">
+            {{ c.id }}
+          </a>
         </td>
-        <td class="table-cel">{{ contact.first_name }}</td>
-        <td class="table-cel">{{ contact.last_name }}</td>
-        <td class="table-cel">{{ contact.phone }}</td>
-        <td class="table-cel">{{ contact.email }}</td>
+        <td class="table-cel">
+          <a href="{% url 'contact:contact' c.id %}" class="table-link">
+            {{ c.first_name }}
+          </a>
+        </td>
+        <td class="table-cel">{{ c.last_name }}</td>
+        <td class="table-cel">{{ c.phone }}</td>
+        <td class="table-cel">{{ c.email }}</td>
       </tr>
       {% endfor %}
       <!-- END FOR -->
