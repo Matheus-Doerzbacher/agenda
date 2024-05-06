@@ -9,6 +9,7 @@ from .views import (
     register,
     login_view,
     logout_view,
+    user_update,
 )
 
 app_name = 'contact'
@@ -26,4 +27,5 @@ urlpatterns = [
     path('user/create/', register, name='register'),
     path('user/login/', login_view, name='login'),
     path('user/logout/', logout_view, name='logout'),
+    path('user/update/', user_update, name='user_update'),
 ]
