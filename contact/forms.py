@@ -22,6 +22,14 @@ class ContactForm(forms.ModelForm):
 
         # self.fields['first_name'].widget.attrs.update({'placeholder': 'Nome'})
 
+    picture = forms.ImageField(
+        widget=forms.FileInput(
+            attrs={
+                'accept': 'image/*',
+            }
+        )
+    )
+
     class Meta:
         model = Contact
         fields = (
@@ -31,6 +39,7 @@ class ContactForm(forms.ModelForm):
             'email',
             'description',
             'categori',
+            'picture',
         )
 
         # 3ro metodo para alterar os dados de um campo do form
